@@ -22,7 +22,7 @@ fun Project.service(
 
     test()
 
-    checkstyle()
+//    checkstyle()
     jacoco()
     this.body()
 }

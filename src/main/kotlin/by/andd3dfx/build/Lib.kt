@@ -20,7 +20,7 @@ fun Project.lib(
     }
     test()
 
-    checkstyle()
+//    checkstyle()
     jacoco()
 
     this.body()
