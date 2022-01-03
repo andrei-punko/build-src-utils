@@ -121,3 +121,35 @@ fun DependencyHandlerScope.lombok(version: String = DependencyVersions.lombok) {
 fun DependencyHandlerScope.apacheCommonsLang(version: String = DependencyVersions.apacheCommonsLang) {
     implementation("org.apache.commons:commons-lang3:${version}")
 }
+
+fun DependencyHandlerScope.mapstruct(version: String = DependencyVersions.mapstruct) {
+    implementation("org.mapstruct:mapstruct:${version}")
+    annotationProcessor("org.mapstruct:mapstruct-processor:${version}")
+    testAnnotationProcessor("org.mapstruct:mapstruct-processor:${version}")
+}
+
+fun DependencyHandlerScope.springFox(version: String = DependencyVersions.springFox) {
+    implementation("io.springfox:springfox-swagger-ui:${version}")
+    implementation("io.springfox:springfox-swagger2:${version}")
+}
+
+fun DependencyHandlerScope.validation(version: String = DependencyVersions.validation) {
+    implementation("javax.validation:validation-api:${version}")
+}
+
+fun DependencyHandlerScope.postgres(version: String = DependencyVersions.postgres) {
+    implementation("org.postgresql:postgresql:${version}")
+}
+
+fun DependencyHandlerScope.flywayCore(version: String = DependencyVersions.flywayCore) {
+    testImplementation("org.flywaydb:flyway-core:${version}")
+}
+
+fun DependencyHandlerScope.testContainers(version: String = DependencyVersions.testContainers) {
+    testImplementation("org.testcontainers:testcontainers:${version}")
+    testImplementation("org.testcontainers:junit-jupiter:${version}")
+}
+
+fun DependencyHandlerScope.postgresTestContainers(version: String = DependencyVersions.postgresTestContainers) {
+    testImplementation("org.testcontainers:postgresql:${version}")
+}
