@@ -17,6 +17,7 @@ fun Project.jacoco() {
         reports {
             html.required.set(true)
             xml.required.set(true)
+            csv.required.set(true)
         }
     }
 }
