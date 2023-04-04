@@ -1,5 +1,5 @@
 plugins {
-    id("org.gradle.kotlin.kotlin-dsl") version "2.1.4"
+    id("org.gradle.kotlin.kotlin-dsl") version "4.0.6"
     jacoco
 }
 
