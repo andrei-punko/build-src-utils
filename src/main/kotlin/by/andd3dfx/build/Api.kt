@@ -26,7 +26,7 @@ fun Project.api(
     }
 
     the<SourceSetContainer>().apply {
-        getByName("main").java.srcDir(file("$buildDir/swagger-code-$name/src/main/java"))
+        getByName("main").java.srcDir(file("${project.layout.buildDirectory}/swagger-code-$name/src/main/java"))
     }
 
     tasks.withType<JavaCompile> {

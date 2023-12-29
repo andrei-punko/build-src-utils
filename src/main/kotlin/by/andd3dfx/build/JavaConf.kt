@@ -7,7 +7,7 @@ import org.gradle.api.tasks.compile.JavaCompile
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.withType
 
-fun Project.javaProject(javaVersion: JavaVersion = JavaVersion.VERSION_11) {
+fun Project.javaProject(javaVersion: JavaVersion = JavaVersion.VERSION_17) {
     plugins.apply("org.gradle.java")
     configure<JavaPluginExtension> {
         sourceCompatibility = javaVersion

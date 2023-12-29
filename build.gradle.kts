@@ -1,5 +1,5 @@
 plugins {
-    id("org.gradle.kotlin.kotlin-dsl") version "4.0.6"
+    `kotlin-dsl`
     jacoco
 }
 
@@ -9,5 +9,5 @@ repositories {
 }
 
 dependencies {
-    api("org.springframework.boot:spring-boot-gradle-plugin:2.4.3")
+    api("org.springframework.boot:spring-boot-gradle-plugin:2.4.13")
 }
