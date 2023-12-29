@@ -12,7 +12,7 @@ fun Project.test(showStacktrace: Boolean = true, excludeTags: List<String> = lis
         }
         if (showStacktrace) {
             testLogging {
-                events("passed", "skipped", "failed")
+                events("passed", "skipped", "failed", "standardOut", "standardError")
                 showStackTraces = true
                 exceptionFormat = TestExceptionFormat.FULL
             }
