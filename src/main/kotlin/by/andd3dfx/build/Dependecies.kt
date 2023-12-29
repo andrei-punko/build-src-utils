@@ -85,7 +85,7 @@ class SpringBootStarters(
         return webServicesImplementation
     }
 
-    fun cloud(version: String = DependencyVersions.springCloud, body: SpringCloudStarters.() -> Unit) {
+    fun cloud(version: String = DependencyVersions.SPRING_CLOUD, body: SpringCloudStarters.() -> Unit) {
         dependencyHandlerScope {
             implementation(platform("org.springframework.cloud:spring-cloud-dependencies:${version}"))
         }
@@ -104,52 +104,52 @@ class SpringCloudStarters(
 }
 
 fun DependencyHandlerScope.springBoot(
-    version: String = DependencyVersions.springBoot,
+    version: String = DependencyVersions.SPRING_BOOT,
     body: SpringBootStarters.() -> Unit = {}
 ) {
     implementation(platform("org.springframework.boot:spring-boot-dependencies:${version}"))
     SpringBootStarters(this).init(body)
 }
 
-fun DependencyHandlerScope.lombok(version: String = DependencyVersions.lombok) {
+fun DependencyHandlerScope.lombok(version: String = DependencyVersions.LOMBOK) {
     compileOnly("org.projectlombok:lombok:${version}")
     annotationProcessor("org.projectlombok:lombok:${version}")
     testCompileOnly("org.projectlombok:lombok:${version}")
     testAnnotationProcessor("org.projectlombok:lombok:${version}")
 }
 
-fun DependencyHandlerScope.apacheCommonsLang(version: String = DependencyVersions.apacheCommonsLang) {
+fun DependencyHandlerScope.apacheCommonsLang(version: String = DependencyVersions.APACHE_COMMON_LANG) {
     implementation("org.apache.commons:commons-lang3:${version}")
 }
 
-fun DependencyHandlerScope.mapstruct(version: String = DependencyVersions.mapstruct) {
+fun DependencyHandlerScope.mapstruct(version: String = DependencyVersions.MAP_STRUCT) {
     implementation("org.mapstruct:mapstruct:${version}")
     annotationProcessor("org.mapstruct:mapstruct-processor:${version}")
     testAnnotationProcessor("org.mapstruct:mapstruct-processor:${version}")
 }
 
-fun DependencyHandlerScope.springFox(version: String = DependencyVersions.springFox) {
+fun DependencyHandlerScope.springFox(version: String = DependencyVersions.SPRING_FOX) {
     implementation("io.springfox:springfox-swagger-ui:${version}")
     implementation("io.springfox:springfox-swagger2:${version}")
 }
 
-fun DependencyHandlerScope.validation(version: String = DependencyVersions.validation) {
+fun DependencyHandlerScope.validation(version: String = DependencyVersions.VALIDATION) {
     implementation("javax.validation:validation-api:${version}")
 }
 
-fun DependencyHandlerScope.postgres(version: String = DependencyVersions.postgres) {
+fun DependencyHandlerScope.postgres(version: String = DependencyVersions.POSTGRES) {
     implementation("org.postgresql:postgresql:${version}")
 }
 
-fun DependencyHandlerScope.flywayCore(version: String = DependencyVersions.flywayCore) {
+fun DependencyHandlerScope.flywayCore(version: String = DependencyVersions.FLYWAY_CORE) {
     testImplementation("org.flywaydb:flyway-core:${version}")
 }
 
-fun DependencyHandlerScope.testContainers(version: String = DependencyVersions.testContainers) {
+fun DependencyHandlerScope.testContainers(version: String = DependencyVersions.TEST_CONTAINERS) {
     testImplementation("org.testcontainers:testcontainers:${version}")
     testImplementation("org.testcontainers:junit-jupiter:${version}")
 }
 
-fun DependencyHandlerScope.postgresTestContainers(version: String = DependencyVersions.postgresTestContainers) {
+fun DependencyHandlerScope.postgresTestContainers(version: String = DependencyVersions.POSTGRES_TEST_CONTAINERS) {
     testImplementation("org.testcontainers:postgresql:${version}")
 }
