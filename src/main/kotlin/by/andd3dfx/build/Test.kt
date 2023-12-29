@@ -2,6 +2,9 @@ package by.andd3dfx.build
 
 import org.gradle.api.Project
 import org.gradle.api.tasks.testing.Test
+import org.gradle.api.tasks.testing.TestDescriptor
+import org.gradle.api.tasks.testing.TestListener
+import org.gradle.api.tasks.testing.TestResult
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.kotlin.dsl.withType
 
@@ -10,6 +13,7 @@ fun Project.test(showStacktrace: Boolean = true, excludeTags: List<String> = lis
         useJUnitPlatform {
             excludeTags(*excludeTags.toTypedArray())
         }
+
         if (showStacktrace) {
             testLogging {
                 events("passed", "skipped", "failed", "standardOut", "standardError")
@@ -17,5 +21,22 @@ fun Project.test(showStacktrace: Boolean = true, excludeTags: List<String> = lis
                 exceptionFormat = TestExceptionFormat.FULL
             }
         }
+
+        addTestListener(object : TestListener {
+            override fun beforeSuite(suite: TestDescriptor) {}
+            override fun beforeTest(testDescriptor: TestDescriptor) {}
+            override fun afterTest(testDescriptor: TestDescriptor, result: TestResult) {}
+
+            override fun afterSuite(suite: TestDescriptor, result: TestResult) {
+                if (suite.parent == null) { // root suite
+                    logger.info("----")
+                    logger.info("Test result: ${result.resultType}")
+                    logger.info("Test summary: ${result.testCount} tests, " +
+                            "${result.successfulTestCount} succeeded, " +
+                            "${result.failedTestCount} failed, " +
+                            "${result.skippedTestCount} skipped")
+                }
+            }
+        })
     }
 }
