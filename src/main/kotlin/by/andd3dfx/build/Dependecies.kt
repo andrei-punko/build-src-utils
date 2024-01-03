@@ -134,7 +134,7 @@ fun DependencyHandlerScope.springFox(version: String = DependencyVersions.SPRING
 }
 
 fun DependencyHandlerScope.validation(version: String = DependencyVersions.VALIDATION) {
-    implementation("javax.validation:validation-api:${version}")
+    implementation("jakarta.validation:jakarta.validation-api:${version}")
 }
 
 fun DependencyHandlerScope.postgres(version: String = DependencyVersions.POSTGRES) {
@@ -150,6 +150,6 @@ fun DependencyHandlerScope.testContainers(version: String = DependencyVersions.T
     testImplementation("org.testcontainers:junit-jupiter:${version}")
 }
 
-fun DependencyHandlerScope.postgresTestContainers(version: String = DependencyVersions.POSTGRES_TEST_CONTAINERS) {
+fun DependencyHandlerScope.postgresTestContainers(version: String = DependencyVersions.TEST_CONTAINERS) {
     testImplementation("org.testcontainers:postgresql:${version}")
 }
