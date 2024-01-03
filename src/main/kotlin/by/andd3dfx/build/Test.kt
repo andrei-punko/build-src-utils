@@ -29,9 +29,8 @@ fun Project.test(showStacktrace: Boolean = true, excludeTags: List<String> = lis
 
             override fun afterSuite(suite: TestDescriptor, result: TestResult) {
                 if (suite.parent == null) { // root suite
-                    logger.info("----")
-                    logger.info("Test result: ${result.resultType}")
-                    logger.info("Test summary: ${result.testCount} tests, " +
+                    println("Test result: ${result.resultType}")
+                    println("Test summary: ${result.testCount} tests, " +
                             "${result.successfulTestCount} succeeded, " +
                             "${result.failedTestCount} failed, " +
                             "${result.skippedTestCount} skipped")
