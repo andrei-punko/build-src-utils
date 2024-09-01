@@ -1,8 +1,7 @@
-name: Java CI with Gradle
+name: Pull request workflow
 on:
-  push:
+  pull_request:
     branches: [ master ]
-  workflow_dispatch:
 
 jobs:
   build:
@@ -10,7 +9,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-      with:
+      with:   # Needed to make checkout of Git submodule too
         submodules: 'true'
 
     - name: Set up JDK
