@@ -8,4 +8,4 @@ Externalization of build by put dependencies and plugins into separate Git repos
 See example of usage [here](https://github.com/andrei-punko/composite-build-usage-example)
 
 ## Prerequisites
-- JDK 17
+- JDK 21
