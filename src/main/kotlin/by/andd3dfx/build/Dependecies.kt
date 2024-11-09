@@ -3,6 +3,11 @@ package by.andd3dfx.build
 import org.gradle.api.artifacts.Dependency
 import org.gradle.api.artifacts.ExternalModuleDependency
 import org.gradle.kotlin.dsl.DependencyHandlerScope
+import org.gradle.kotlin.dsl.exclude
+
+/**
+ * When library version not populated - version from Spring Boot parent pom will be used
+ */
 
 const val implementation = "implementation"
 const val testImplementation = "testImplementation"
@@ -11,8 +16,6 @@ const val annotationProcessor = "annotationProcessor"
 const val compileClasspath = "compileClasspath"
 const val testCompileOnly = "testCompileOnly"
 const val testAnnotationProcessor = "testAnnotationProcessor"
-const val swaggerCodegen = "swaggerCodegen"
-const val swaggerInterface = "swaggerUI"
 
 abstract class Starters(
     val dependencyScope: DependencyHandlerScope,
@@ -118,8 +121,8 @@ fun DependencyHandlerScope.lombok(version: String = DependencyVersions.LOMBOK) {
     testAnnotationProcessor("org.projectlombok:lombok:${version}")
 }
 
-fun DependencyHandlerScope.apacheCommonsLang(version: String = DependencyVersions.APACHE_COMMON_LANG) {
-    implementation("org.apache.commons:commons-lang3:${version}")
+fun DependencyHandlerScope.apacheCommonsLang() {
+    implementation("org.apache.commons:commons-lang3")
 }
 
 fun DependencyHandlerScope.mapstruct(version: String = DependencyVersions.MAP_STRUCT) {
@@ -128,21 +131,31 @@ fun DependencyHandlerScope.mapstruct(version: String = DependencyVersions.MAP_ST
     testAnnotationProcessor("org.mapstruct:mapstruct-processor:${version}")
 }
 
-fun DependencyHandlerScope.springFox(version: String = DependencyVersions.SPRING_FOX) {
-    implementation("io.springfox:springfox-swagger-ui:${version}")
-    implementation("io.springfox:springfox-swagger2:${version}")
+fun DependencyHandlerScope.springDoc(version: String = DependencyVersions.SPRING_DOC) {
+    implementation("org.springdoc:springdoc-openapi-ui:${version}")
 }
 
-fun DependencyHandlerScope.validation(version: String = DependencyVersions.VALIDATION) {
-    implementation("jakarta.validation:jakarta.validation-api:${version}")
+fun DependencyHandlerScope.swagger(version: String = DependencyVersions.SWAGGER) {
+    implementation("io.swagger:swagger-annotations:${version}")
+    implementation("io.swagger:swagger-models:${version}") {
+        exclude("org.slf4j", "slf4j-api")
+    }
+}
+
+fun DependencyHandlerScope.validation() {
+    implementation("jakarta.validation:jakarta.validation-api")
 }
 
 fun DependencyHandlerScope.postgres(version: String = DependencyVersions.POSTGRES) {
     implementation("org.postgresql:postgresql:${version}")
 }
 
-fun DependencyHandlerScope.flywayCore(version: String = DependencyVersions.FLYWAY_CORE) {
-    testImplementation("org.flywaydb:flyway-core:${version}")
+fun DependencyHandlerScope.h2() {
+    implementation("com.h2database:h2")
+}
+
+fun DependencyHandlerScope.flywayCore() {
+    testImplementation("org.flywaydb:flyway-core")
 }
 
 fun DependencyHandlerScope.testContainers(version: String = DependencyVersions.TEST_CONTAINERS) {
