@@ -155,7 +155,7 @@ fun DependencyHandlerScope.h2() {
 }
 
 fun DependencyHandlerScope.flywayCore() {
-    testImplementation("org.flywaydb:flyway-core")
+    implementation("org.flywaydb:flyway-core")
 }
 
 fun DependencyHandlerScope.testContainers(version: String = DependencyVersions.TEST_CONTAINERS) {
