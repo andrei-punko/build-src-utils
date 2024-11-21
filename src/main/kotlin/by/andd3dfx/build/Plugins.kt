@@ -6,7 +6,7 @@ class Plugins(val project: Project) {
 
     fun springBoot() {
         project.apply {
-            plugin("io.spring.dependency-management")
+            plugin("org.springframework.boot")
         }
     }
 
