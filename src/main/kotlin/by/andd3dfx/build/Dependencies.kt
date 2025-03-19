@@ -57,7 +57,8 @@ abstract class Starters(
 }
 
 class SpringBootStarters(
-    val dependencyHandlerScope: DependencyHandlerScope
+    val dependencyHandlerScope: DependencyHandlerScope,
+    private val dependencyVersions: DependencyVersions
 ) : Starters(dependencyHandlerScope, "org.springframework.boot") {
 
     fun springBoot() = implementation("org.springframework.boot:spring-boot-starter")
@@ -107,11 +108,12 @@ class SpringCloudStarters(
 }
 
 fun DependencyHandlerScope.springBoot(
-    version: String = DependencyVersions.SPRING_BOOT,
+    project: org.gradle.api.Project,
     body: SpringBootStarters.() -> Unit = {}
 ) {
-    implementation(platform("org.springframework.boot:spring-boot-dependencies:${version}"))
-    SpringBootStarters(this).init(body)
+    val dependencyVersions = DependencyVersions(project)
+    implementation(platform("org.springframework.boot:spring-boot-dependencies:${dependencyVersions.SPRING_BOOT}"))
+    SpringBootStarters(this, dependencyVersions).init(body)
 }
 
 fun DependencyHandlerScope.lombok(version: String = DependencyVersions.LOMBOK) {
