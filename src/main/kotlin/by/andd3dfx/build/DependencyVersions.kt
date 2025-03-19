@@ -3,7 +3,7 @@ package by.andd3dfx.build
 class DependencyVersions {
     companion object {
         const val LOMBOK = "1.18.30"
-        const val SPRING_BOOT = "2.7.18"
+        val SPRING_BOOT: String = System.getProperty("springBootVersion")
         const val SPRING_CLOUD = "2023.0.0"
         const val MAP_STRUCT = "1.5.5.Final"
         const val SPRING_DOC = "1.7.0"

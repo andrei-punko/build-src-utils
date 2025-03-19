@@ -9,5 +9,5 @@ repositories {
 }
 
 dependencies {
-    api("org.springframework.boot:spring-boot-gradle-plugin:2.7.18")
+    api("org.springframework.boot:spring-boot-gradle-plugin:${property("springBootVersion")}")
 }
