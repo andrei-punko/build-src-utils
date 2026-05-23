@@ -10,7 +10,7 @@ class DependencyVersions(private val project: Project) {
         const val SPRING_DOC = "1.7.0"
         const val SWAGGER = "1.6.12"
         const val POSTGRES = "42.7.1"
-        const val TEST_CONTAINERS = "1.19.3"
+        const val TEST_CONTAINERS = "1.21.4"
     }
 
     val SPRING_BOOT: String
