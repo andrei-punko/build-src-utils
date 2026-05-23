@@ -11,3 +11,4 @@ See example of usage [here](https://github.com/andrei-punko/composite-build-usag
 ## Prerequisites
 
 - JDK 21
+- Gradle (embedded)
