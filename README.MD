@@ -1,6 +1,7 @@
 # Sources of build configuration to make Composite Build
 
 [![Java CI with Gradle](https://github.com/andrei-punko/build-src-utils/actions/workflows/gradle.yml/badge.svg)](https://github.com/andrei-punko/build-src-utils/actions/workflows/gradle.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 Externalization of build configuration by put dependencies and plugins common params into separate Git repository and
 reuse it after that without writing repeatable code
