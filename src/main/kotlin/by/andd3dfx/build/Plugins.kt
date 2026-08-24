@@ -11,7 +11,7 @@ class Plugins(val project: Project) {
     }
 
     companion object {
-        fun Project.applyPlugins(body: Plugins.() -> Unit) {
+        fun Project.plugins(body: Plugins.() -> Unit) {
             Plugins(this).body()
         }
     }
